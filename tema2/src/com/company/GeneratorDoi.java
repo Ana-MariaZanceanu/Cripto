@@ -192,6 +192,10 @@ public class GeneratorDoi {
                 else
                     result = jacobiSymbol(a,setup.getN());
             }
+            if(result.compareTo(BigInteger.ONE.negate()) == 0)//secventa alcatuita trebuie sa fie binara...deci -1 va deveni 1 (-1 mod 2)
+            {
+                result = BigInteger.ONE;
+            }
             stringBuilder.append(result.intValue());
         }
         sequence = new String(stringBuilder);
