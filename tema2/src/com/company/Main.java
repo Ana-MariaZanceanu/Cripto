@@ -104,14 +104,14 @@ public class Main {
                     String numarul1 = scanner1.nextLine();
                     System.out.println("Numarul 2:");
                     String numarul2 = scanner1.nextLine();
-                    System.out.println("Rezultatul este: " + jacobi.getJacobiSymbolResult(new BigInteger(numarul1),new BigInteger(numarul2)));
+                    System.out.println("Rezultatul este: " + jacobi.jacobiSymbol(new BigInteger(numarul1),new BigInteger(numarul2)));
                     break;
                 case 6:
                     System.out.println("Multumesc!");
                     ok = 0;
                     break;
                 default:
-                    System.out.println("Puteti selecta 1, 2, 3, 4 sau 5!");
+                    System.out.println("Puteti selecta 1, 2, 3, 4, 5 sau 6!");
                     break;
             }
         }

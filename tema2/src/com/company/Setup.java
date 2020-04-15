@@ -24,7 +24,7 @@ public class Setup {
             q = BigInteger.probablePrime(length,r);
         }
         n = n.multiply(p).multiply(q);
-        seed = System.currentTimeMillis();
+        seed = System.nanoTime();
     }
 
     public BigInteger getP() {
