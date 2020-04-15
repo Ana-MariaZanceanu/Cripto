@@ -134,6 +134,6 @@ public class RCA {
                 nr1++;
             }
         }
-        System.out.println("0 apare de " + nr0 + " ori deci cu o frecventa de " + (double)nr0 / (double)keystream.length + ", iar 1 apare de " + nr1 + " ori deci cu o frecventa de " + (double)nr1 / (double)keystream.length);
+        System.out.println("0 apare de " + nr0 + " ori deci cu o frecventa de " + (double)nr0 / (double)keystream.length * 100 + ", iar 1 apare de " + nr1 + " ori deci cu o frecventa de " + (double)nr1 / (double)keystream.length * 100);
     }
 }

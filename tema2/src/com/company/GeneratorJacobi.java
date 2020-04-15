@@ -38,6 +38,12 @@ public class GeneratorJacobi {
         this.l = l;
     }
 
+    /**
+     * Calculam simbolul jacobi pt n si k
+     * @param n - primul nr
+     * @param k - al doilea nr
+     * @return simbolul jacobi pt n si k
+     */
     public BigInteger jacobiSymbol(BigInteger n,BigInteger k)
     {
         BigInteger t = new BigInteger("1");
@@ -67,6 +73,10 @@ public class GeneratorJacobi {
         }
     }
 
+    /**
+     * Pentru 1<=i<=16, a va fi seed+i si se calculeaza simbolul jacobi pentru a si n. Rezultatul din urma simbolului jacobi se va adauga in secventa- daca rezultatul este -1 vom adauga 0.
+     * @return secventa compusa de biti
+     */
     public String algorithm()
     {
         StringBuilder stringBuilder = new StringBuilder();
