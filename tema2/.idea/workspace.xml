@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="82c46130-69f1-40d9-8506-2ed23ecbb7db" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tema2/META-INF/tema2.kotlin_module" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/tema2/com/company/GeneratorJacobi.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tema2/com/company/GeneratorJacobi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/tema2/com/company/RCA.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tema2/com/company/RCA.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/GeneratorJacobi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/GeneratorJacobi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Setup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Setup.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +29,6 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -84,7 +80,9 @@
       <workItem from="1586594165318" duration="21405000" />
       <workItem from="1586697335583" duration="62000" />
       <workItem from="1586855031817" duration="6334000" />
-      <workItem from="1586938343922" duration="3757000" />
+      <workItem from="1586938343922" duration="9508000" />
+      <workItem from="1586969298536" duration="1273000" />
+      <workItem from="1587821830638" duration="75000" />
     </task>
     <servers />
   </component>
@@ -104,30 +102,30 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1586855312304" />
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1586697393031">
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1587821901274">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1586697393031" />
-    <state width="788" height="267" key="GridCell.Tab.0.bottom" timestamp="1586941997737">
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1587821901274" />
+    <state width="670" height="550" key="GridCell.Tab.0.bottom" timestamp="1586956767597">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="788" height="267" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586941997737" />
-    <state width="788" height="267" key="GridCell.Tab.0.center" timestamp="1586941997730">
+    <state width="670" height="550" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586956767597" />
+    <state width="670" height="550" key="GridCell.Tab.0.center" timestamp="1586956767595">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="788" height="267" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1586941997730" />
-    <state width="788" height="267" key="GridCell.Tab.0.left" timestamp="1586941997720">
+    <state width="670" height="550" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1586956767595" />
+    <state width="670" height="550" key="GridCell.Tab.0.left" timestamp="1586956767589">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="788" height="267" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1586941997720" />
-    <state width="788" height="267" key="GridCell.Tab.0.right" timestamp="1586941997731">
+    <state width="670" height="550" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1586956767589" />
+    <state width="670" height="550" key="GridCell.Tab.0.right" timestamp="1586956767596">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="788" height="267" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1586941997731" />
-    <state x="65" y="0" key="new project wizard" timestamp="1586697395353">
+    <state width="670" height="550" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1586956767596" />
+    <state x="65" y="0" key="new project wizard" timestamp="1587821904370">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="65" y="0" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1586697395353" />
+    <state x="65" y="0" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1587821904370" />
     <state x="339" y="162" key="run.anything.popup" timestamp="1586595510979">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

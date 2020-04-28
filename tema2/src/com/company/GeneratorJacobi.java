@@ -1,10 +1,6 @@
 package com.company;
 
 import java.math.BigInteger;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.math.*;
 
 public class GeneratorJacobi {
     private Setup setup;
