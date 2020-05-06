@@ -42,7 +42,7 @@ public class BirthdayAttack {
     public void attack(){
         SHA1 sha1 = new SHA1();
         int i = 0;
-        while(i < 77000){
+        while(i < 111000){
             String randomMessage = generateRandomString(10);
             sha1.setMessage(randomMessage);
             String hashedMessage = sha1.processing();
@@ -51,7 +51,6 @@ public class BirthdayAttack {
                 System.out.println("Message 2: " + randomMessage);
                 System.out.println("Hashed message 2: " + hashedMessage);
                 System.out.println("Resume 2: " + resume);
-                break;
             }else{
                 listResumes.add(resume);
                 listMessages.add(randomMessage);
