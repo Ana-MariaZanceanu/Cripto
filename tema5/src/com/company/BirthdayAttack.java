@@ -5,7 +5,9 @@ import java.util.List;
 import java.util.Random;
 
 public class BirthdayAttack {
-    private List<String> list = new ArrayList<>();
+    private List<String> listResumes = new ArrayList<>();
+    private List<String> listMessages = new ArrayList<>();
+    private List<String> listHashedMessages = new ArrayList<>();
     public BirthdayAttack(){}
 
     public int generateRandomLength(){
@@ -25,8 +27,12 @@ public class BirthdayAttack {
     }
 
     public boolean existInList(String resume){
-        for(String s : list){
+        for(String s : listResumes){
             if(s.compareTo(resume) == 0){
+                int i = listResumes.indexOf(s);
+                System.out.println("Message 1: " + listMessages.get(i));
+                System.out.println("Hashed message 1: " + listHashedMessages.get(i));
+                System.out.println("Resume 1: " + s);
                 return true;
             }
         }
@@ -41,14 +47,15 @@ public class BirthdayAttack {
             sha1.setMessage(randomMessage);
             String hashedMessage = sha1.processing();
             String resume = sha1.resume(hashedMessage);
-            System.out.println(resume);
             if(existInList(resume)){
-                System.out.println("Message: " + randomMessage);
-                System.out.println("Hashed message: " + hashedMessage);
-                System.out.println("Resume: " + resume);
+                System.out.println("Message 2: " + randomMessage);
+                System.out.println("Hashed message 2: " + hashedMessage);
+                System.out.println("Resume 2: " + resume);
                 break;
             }else{
-                list.add(resume);
+                listResumes.add(resume);
+                listMessages.add(randomMessage);
+                listHashedMessages.add(hashedMessage);
             }
             i++;
         }
