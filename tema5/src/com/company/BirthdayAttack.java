@@ -1,10 +1,11 @@
 package com.company;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class BirthdayAttack {
-    private String[] randomMessages = new String[80];
-    private String[] resumesRandomMessages = new String[80];
+    private List<String> list = new ArrayList<>();
     public BirthdayAttack(){}
 
     public int generateRandomLength(){
@@ -23,28 +24,33 @@ public class BirthdayAttack {
         return stringBuilder.toString();
     }
 
-    public int attack(){
+    public boolean existInList(String resume){
+        for(String s : list){
+            if(s.compareTo(resume) == 0){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void attack(){
         SHA1 sha1 = new SHA1();
-        while(true){
-            for(int i = 0; i < 80; i++){
-                randomMessages[i] = generateRandomString(generateRandomLength());
-                sha1.setMessage(randomMessages[i]);
-                resumesRandomMessages[i] = sha1.resume(sha1.processing());
-                System.out.println(resumesRandomMessages[i]);
+        int i = 0;
+        while(i < 77000){
+            String randomMessage = generateRandomString(10);
+            sha1.setMessage(randomMessage);
+            String hashedMessage = sha1.processing();
+            String resume = sha1.resume(hashedMessage);
+            System.out.println(resume);
+            if(existInList(resume)){
+                System.out.println("Message: " + randomMessage);
+                System.out.println("Hashed message: " + hashedMessage);
+                System.out.println("Resume: " + resume);
+                break;
+            }else{
+                list.add(resume);
             }
-            for(int i = 0; i < 79; i++){
-                for(int j = i + 1; j < 80; j++){
-                    if(resumesRandomMessages[i] == resumesRandomMessages[j]){
-                        System.out.println("Messages are:");
-                        System.out.println(randomMessages[i]);
-                        System.out.println(randomMessages[j]);
-                        System.out.println("Resumes:");
-                        System.out.println(resumesRandomMessages[i]);
-                        System.out.println(resumesRandomMessages[j]);
-                        return 1;
-                    }
-                }
-            }
+            i++;
         }
     }
 }
