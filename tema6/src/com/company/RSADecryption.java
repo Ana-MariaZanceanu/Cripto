@@ -105,7 +105,7 @@ public class RSADecryption {
     }
 
     public void setPlaintext(){
-        this.plaintext = exp_by_squaring_iterative(this.ciphertext,this.d).mod(this.n);
+        this.plaintext = this.ciphertext.modPow(this.d,this.n);
     }
 
     public BigInteger getPlaintext() {

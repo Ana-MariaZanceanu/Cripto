@@ -13,7 +13,7 @@ public class WienerAttack {
     private BigInteger phi;
     private final Random r = new Random();
     private final int length = 512;
-    private final int lengthForE = 1024;
+    private final int lengthForE = 32;
     public WienerAttack(){}
     public void generate(){
         this.setQ();
@@ -69,18 +69,21 @@ public class WienerAttack {
     }
 
     public int criterion(BigInteger l, BigInteger d){
+        System.out.println("l " + l);
+        System.out.println("d " + d);
         if(l.compareTo(BigInteger.ZERO) != 0 && d.compareTo(BigInteger.ZERO) != 0){
-            BigInteger s = this.n;
-            BigInteger p = this.n.subtract(this.e.multiply(d).subtract(BigInteger.ONE).divide(l)).add(BigInteger.ONE);
+            BigInteger p = this.n;
+            BigInteger s = this.n.subtract(this.e.multiply(d).subtract(BigInteger.ONE).divide(l)).add(BigInteger.ONE);
             BigInteger b = s.multiply(s);
             BigInteger ac = p.multiply(BigInteger.valueOf(4));
             BigInteger delta = b.subtract(ac);
-            BigInteger deltaSqrt = delta.sqrt();
-            if(delta.compareTo(BigInteger.ZERO) >= 0 && deltaSqrt.compareTo(BigInteger.ZERO) >= 0 && deltaSqrt.multiply(deltaSqrt).compareTo(delta) == 0){
-                System.out.println("aici1");
-                System.out.println(delta);
-                System.out.println(deltaSqrt);
-                return 1;
+            if(delta.compareTo(BigInteger.ZERO) >= 0){
+                BigInteger deltaSqrt = delta.sqrt();
+                if(deltaSqrt.compareTo(BigInteger.ZERO) >= 0 && deltaSqrt.multiply(deltaSqrt).compareTo(delta) == 0){
+                    System.out.println(delta);
+                    System.out.println(deltaSqrt);
+                    return 1;
+                }
             }
         }
         return 0;
@@ -116,7 +119,9 @@ public class WienerAttack {
         if(criterion(l,D) == 1){
             return D;
         }
-        do{
+
+        while(criterion(l,D) != 1 && remainder.compareTo(BigInteger.ZERO) != 0){
+            System.out.println("Remainder " + remainder);
             remainder1 = remainder2;
             remainder2 = remainder;
             alpha1 = alpha2;
@@ -128,7 +133,9 @@ public class WienerAttack {
             remainder = remainder1.mod(remainder2);
             alpha = quotient.multiply(alpha2).add(alpha1);
             beta = quotient.multiply(beta2).add(beta1);
-        }while(criterion(l,D) == 1);
+            l = alpha;
+            D = beta;
+        }
         return D;
     }
 

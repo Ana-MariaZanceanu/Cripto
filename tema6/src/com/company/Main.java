@@ -10,7 +10,7 @@ public class Main {
         System.out.println(plaintext);
 
         RSAKeyScheduling keyScheduling = new RSAKeyScheduling();
-        keyScheduling.setLengthForE(1024);
+        keyScheduling.setLengthForE(32);
         keyScheduling.generate();
         System.out.println(keyScheduling.getN());
 
@@ -39,22 +39,23 @@ public class Main {
         System.out.println("--------------------------------------------------------------------------------------------");
         System.out.println("DECRYPTION WITH CHINESE REMAINDER THEOREM:");
         System.out.println();
-        RSAKeyScheduling secondKeyScheduling = new RSAKeyScheduling();
-        secondKeyScheduling.setLengthForE(32);
-        secondKeyScheduling.generate();
 
-        RSAEncryption secondEncryption = new RSAEncryption(plaintext,secondKeyScheduling.getE(),secondKeyScheduling.getN());
-        secondEncryption.setCiphertext();
-        BigInteger secondCiphertext = secondEncryption.getCiphertext();
-        System.out.println("2.Ciphertext:");
-        System.out.println(secondCiphertext);
-
-
-        RSADecryption secondDecryption = new RSADecryption(secondCiphertext,secondKeyScheduling.getD(),secondKeyScheduling.getN(),secondKeyScheduling.getP(),secondKeyScheduling.getQ());
+//        RSAKeyScheduling secondKeyScheduling = new RSAKeyScheduling();
+//        secondKeyScheduling.setLengthForE(32);
+//        secondKeyScheduling.generate();
+//
+//        RSAEncryption secondEncryption = new RSAEncryption(plaintext,secondKeyScheduling.getE(),secondKeyScheduling.getN());
+//        secondEncryption.setCiphertext();
+//        BigInteger secondCiphertext = secondEncryption.getCiphertext();
+//        System.out.println("2.Ciphertext:");
+//        System.out.println(secondCiphertext);
+//
+//
+//        RSADecryption secondDecryption = new RSADecryption(secondCiphertext,secondKeyScheduling.getD(),secondKeyScheduling.getN(),secondKeyScheduling.getP(),secondKeyScheduling.getQ());
         startTime = System.nanoTime();
-        secondDecryption.setPlaintextWithCRT();
+        decryption.setPlaintextWithCRT();
         endTime = System.nanoTime();
-        BigInteger secondDecrypted = secondDecryption.getPlaintext();
+        BigInteger secondDecrypted = decryption.getPlaintext();
         System.out.println("2.Decrypted message is:");
         System.out.println(secondDecrypted);
         if(plaintext.compareTo(secondDecrypted) == 0){
@@ -70,12 +71,6 @@ public class Main {
 
         WienerAttack wienerAttack = new WienerAttack();
         wienerAttack.generate();
-        System.out.println(wienerAttack.getP());
-        System.out.println(wienerAttack.getQ());
-        System.out.println(wienerAttack.getN());
-        System.out.println(wienerAttack.getE());
-        System.out.println(wienerAttack.getD());
-        System.out.println(wienerAttack.getPhi());
 
         RSAEncryption thirdEncryption = new RSAEncryption(plaintext,wienerAttack.getE(),wienerAttack.getN());
         thirdEncryption.setCiphertext();

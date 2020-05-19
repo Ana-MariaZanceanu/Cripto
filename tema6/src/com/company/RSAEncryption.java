@@ -84,9 +84,7 @@ public class RSAEncryption {
     }
 
     public void setCiphertext(){
-        System.out.println("aici");
-        BigInteger expResult = exp_by_squaring_iterative(this.plaintext,this.e);
-        this.ciphertext = expResult.mod(this.n);
+        this.ciphertext = this.plaintext.modPow(this.e,this.n);
     }
 
     public BigInteger getCiphertext() {
