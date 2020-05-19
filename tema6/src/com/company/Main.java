@@ -12,6 +12,7 @@ public class Main {
         RSAKeyScheduling keyScheduling = new RSAKeyScheduling();
         keyScheduling.setLengthForE(1024);
         keyScheduling.generate();
+        System.out.println(keyScheduling.getN());
 
         RSAEncryption encryption = new RSAEncryption(plaintext,keyScheduling.getE(),keyScheduling.getN());
         encryption.setCiphertext();

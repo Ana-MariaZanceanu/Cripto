@@ -61,9 +61,31 @@ public class RSAEncryption {
         }
     }
 
+    public BigInteger exp_by_squaring_iterative(BigInteger x, BigInteger n){
+        if(n.compareTo(BigInteger.ZERO) < 0){
+            x = BigInteger.ONE.divide(x);
+            n = n.negate();
+        }
+        if(n.compareTo(BigInteger.ZERO) == 0){
+            return BigInteger.ONE;
+        }
+        BigInteger y = BigInteger.ONE;
+        while(n.compareTo(BigInteger.ONE) > 0){
+            if(n.mod(BigInteger.valueOf(2)).compareTo(BigInteger.ZERO) == 0){
+                x = x.multiply(x);
+                n = n.divide(BigInteger.valueOf(2));
+            }else{
+                y = x.multiply(y);
+                x = x.multiply(x);
+                n = n.subtract(BigInteger.ONE).divide(BigInteger.valueOf(2));
+            }
+        }
+        return x.multiply(y);
+    }
+
     public void setCiphertext(){
         System.out.println("aici");
-        BigInteger expResult = exp_by_squaring(this.plaintext,this.e);
+        BigInteger expResult = exp_by_squaring_iterative(this.plaintext,this.e);
         this.ciphertext = expResult.mod(this.n);
     }
 

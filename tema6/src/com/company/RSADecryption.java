@@ -82,8 +82,30 @@ public class RSADecryption {
         }
     }
 
+    public BigInteger exp_by_squaring_iterative(BigInteger x, BigInteger n){
+        if(n.compareTo(BigInteger.ZERO) < 0){
+            x = BigInteger.ONE.divide(x);
+            n = n.negate();
+        }
+        if(n.compareTo(BigInteger.ZERO) == 0){
+            return BigInteger.ONE;
+        }
+        BigInteger y = BigInteger.ONE;
+        while(n.compareTo(BigInteger.ONE) > 0){
+            if(n.mod(BigInteger.valueOf(2)).compareTo(BigInteger.ZERO) == 0){
+                x = x.multiply(x);
+                n = n.divide(BigInteger.valueOf(2));
+            }else{
+                y = x.multiply(y);
+                x = x.multiply(x);
+                n = n.subtract(BigInteger.ONE).divide(BigInteger.valueOf(2));
+            }
+        }
+        return x.multiply(y);
+    }
+
     public void setPlaintext(){
-        this.plaintext = exp_by_squaring(this.ciphertext,this.d).mod(this.n);
+        this.plaintext = exp_by_squaring_iterative(this.ciphertext,this.d).mod(this.n);
     }
 
     public BigInteger getPlaintext() {
